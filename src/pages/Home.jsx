@@ -29,10 +29,15 @@ export default function Home() {
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
                             {/* Link only works upon the text value rather having h1 tag that creates a box structure */}
-                            <Link to={"/login"} className="text-2xl font-bold hover:text-gray-500"
+                            {/* <Link to={"/login"} className="text-2xl font-bold hover:text-gray-500"
                             >
                                 {state ? "Loading..." : "Login to read posts"}
-                            </Link>
+                            </Link> */}
+                            {state ?
+                                <div class="spinner-grow" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                : "Login to read posts"}
                         </div>
                     </div>
                 </Container>

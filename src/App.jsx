@@ -34,7 +34,10 @@ function App() {
         <Footer />
       </div>
     </div>
-  ) : <p className="text-2xl font-bold">Loading...</p>
+  ) : <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  // <p className="text-2xl font-bold">Loading...</p>
 }
 
 export default App

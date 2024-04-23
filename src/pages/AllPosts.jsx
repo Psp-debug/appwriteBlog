@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container, PostCard } from "../components/index"
 import appwriteSevice from "../appwrite/config"
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 function AllPosts() {
@@ -9,7 +9,7 @@ function AllPosts() {
   const [state, setState] = useState(false)
   const status = useSelector(state => state.status)
   useEffect(() => {
-    if(status) setState(true) 
+    if (status) setState(true)
     else setState(false)
     appwriteSevice.getPosts([]).then((posts) => {
       if (posts) {
@@ -27,7 +27,10 @@ function AllPosts() {
               {/* Link only works upon the text value rather having h1 tag that creates a box structure */}
               <Link to={"/login"} className="text-2xl font-bold hover:text-gray-500"
               >
-                {state ? "Loading..." : "Login to read posts"}
+                {state ? <div class="spinner-grow" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                  : "Login to read posts"}
               </Link>
             </div>
           </div>
